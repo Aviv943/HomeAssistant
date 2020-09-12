@@ -1,6 +1,0 @@
-- platform: template
-  sensors:
-    last_irrigation_time:
-      entity_id: switch.sonoff_1000cab163
-      friendly_name: "Last Irrigation Time"
-      value_template: "{{as_timestamp(states.switch.sonoff_1000cab163.last_changed) | timestamp_custom('%A %d-%b-%y, %H:%M:%S')}}"

@@ -1,0 +1,17 @@
+- platform: template
+  sensors:
+    entrance_door:
+      friendly_name: "Entrance Door"
+      icon_template: mdi:door-closed-lock
+      value_template: >
+        {% if is_state('binary_sensor.entrance_door_lock', 'off') and is_state('binary_sensor.entrance_door_upper_lock', 'off') %}
+            Double Locked
+        {% elif is_state('binary_sensor.entrance_door_upper_lock', 'off') %}
+            Upper Locked
+        {% elif is_state('binary_sensor.entrance_door_lock', 'off') %}
+            Locked
+        {% elif is_state('binary_sensor.entrance_door', 'off') %}
+            Closed
+        {% else %}
+            Opened
+        {% endif %}

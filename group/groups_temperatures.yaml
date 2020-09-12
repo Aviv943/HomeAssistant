@@ -1,0 +1,22 @@
+default_view:
+  icon: mdi:home
+  entities:
+    - group.temperatures
+    - group.humidities
+
+temperatures:
+  name: Temperatures
+  entities:
+    - sensor.multi_sensor_3
+    - sensor.sensibo_living_room_temperature
+    - sensor.temperature_6
+    - sensor.temperature_9
+    
+humidities:
+  name: Humidities
+  entities: 
+   - sensor.humidity_7
+   - sensor.humidity_10
+   - sensor.multi_sensor
+   - sensor.sensibo_living_room_humidity
+   

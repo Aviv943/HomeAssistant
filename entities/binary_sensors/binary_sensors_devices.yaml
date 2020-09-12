@@ -1,0 +1,85 @@
+- platform: template
+  sensors:
+    broadlink_rm3_pro:
+      device_class: connectivity
+      friendly_name: "Broadlink RM3 Pro +"
+      icon_template: mdi:access-point-network
+      value_template: >-
+        {{ is_state('device_tracker.broadlink_rm3_pro_nmap', 'home') }}
+                
+    google_home_mini_living_room:
+      device_class: connectivity
+      friendly_name: "Google Home Mini"
+      icon_template: mdi:google
+      value_template: >-
+        {{ is_state('device_tracker.google_home_mini_living_room_nmap', 'home') }}
+        
+    echo_dot_kitchen:
+      device_class: connectivity
+      friendly_name: "Echo Dot Kitchen"
+      icon_template: mdi:amazon
+      value_template: >-
+        {{ is_state('device_tracker.echo_dot_kitchen_nmap', 'home') }}
+        
+    echo_dot_bedroom:
+      device_class: connectivity
+      friendly_name: "Echo Dot Bedroom"
+      icon_template: mdi:amazon
+      value_template: >-
+        {{ is_state('device_tracker.echo_dot_bedroom_nmap', 'home') }}
+        
+    wyze_kitchen:
+      device_class: connectivity
+      friendly_name: "Wyze Kitchen"
+      icon_template: mdi:cctv
+      value_template: >-
+        {{ is_state('device_tracker.wyze_kitchen_nmap', 'home') }}
+
+    wyze_entrance:
+      device_class: connectivity
+      friendly_name: "Wyze Entrance"
+      icon_template: mdi:cctv
+      value_template: >-
+        {{ is_state('device_tracker.wyze_entrance_nmap', 'home') }}
+        
+    wyze_living_room:
+      device_class: connectivity
+      friendly_name: "Wyze Living Room"
+      icon_template: mdi:cctv
+      value_template: >-
+        {{ is_state('device_tracker.wyze_living_room_nmap', 'home') }}
+        
+    ipad_cp:
+      device_class: connectivity
+      friendly_name: "iPad CP"
+      icon_template: mdi:tablet-ipad
+      value_template: >-
+        {{ is_state('device_tracker.ipad_cp_nmap', 'home') }}
+
+    michal_phone:
+      device_class: connectivity
+      friendly_name: "Michal Phone"
+      icon_template: mdi:cellphone-android
+      value_template: >-
+        {{ is_state('device_tracker.life360_michal_yunaev', 'home') }}
+
+    aviv_phone:
+      device_class: connectivity
+      friendly_name: "Aviv iPhone"
+      icon_template: mdi:cellphone-iphone
+      value_template: >-
+        {{ is_state('device_tracker.life360_aviv', 'home') }}
+                
+    aviv_pc:
+      device_class: connectivity
+      friendly_name: "Aviv PC"
+      icon_template: mdi:desktop-classic
+      value_template: >-
+        {{ is_state('device_tracker.aviv_pc_nmap', 'home') }}
+
+    sensibo_sky_living_room:
+      device_class: connectivity
+      friendly_name: "Sensibo Living Room"
+      icon_template: mdi:temperature-celsius
+      value_template: >-
+        {{ is_state('device_tracker.sensibo_sky_living_room_nmap', 'home') }}

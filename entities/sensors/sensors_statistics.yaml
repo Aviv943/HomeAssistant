@@ -1,0 +1,28 @@
+#==================================== #=== Home Assistant Component counts #==================================== 
+  - platform: template
+    sensors:
+      switches_count:
+        friendly_name: "Switches Count"
+        value_template: "{{ states.switch | count }}"
+        unit_of_measurement: "Units"
+      sensors_count:
+        friendly_name: "Sesnors Count"
+        value_template: "{{ states.sensor | count }}"
+        unit_of_measurement: "Units"
+      binary_sensors_count:
+        friendly_name: "Binary Sesnors Count"
+        value_template: "{{ states.binary_sensor | count }}"
+        unit_of_measurement: "Units"
+      device_trackers_count:
+        friendly_name: "Device Trackers Count"
+        value_template: "{{ states.device_tracker | count }}"
+        unit_of_measurement: "Units"
+      zones_count:
+        friendly_name: "Zones Count"
+        value_template: "{{ states.zone | count }}"
+        unit_of_measurement: "Units"
+      scripts_count:
+        friendly_name: "Scripts Count"
+        value_template: "{{ states.script | count }}"
+        unit_of_measurement: "Units"
+      

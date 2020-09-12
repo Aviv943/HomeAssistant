@@ -1,0 +1,16 @@
+all_home:
+  name: All Home Status
+  icon: mid:home-map-marker
+  all: true
+  entities:
+    - person.aviv
+    - person.michal
+
+one_home:
+  name: One Home Status
+  icon: mid:home-map-marker
+  all: false
+  entities:
+    - person.aviv
+    - person.michal
+    

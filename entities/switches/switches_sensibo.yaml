@@ -1,0 +1,30 @@
+# Living Room AC
+  - platform: template
+    switches:
+      sensibo_living_room_heat:
+        friendly_name: Living Room AC Heat
+        icon_template: mdi:fire
+        value_template: "{{ is_state('climate.living_room', 'heat') }}"
+        turn_on:
+          service: climate.set_hvac_mode
+          data:
+            entity_id: climate.living_room
+            hvac_mode: heat
+        turn_off:
+          service: climate.turn_off
+          data:
+            entity_id: climate.living_room
+
+      sensibo_living_room_cool:
+        friendly_name: Living Room AC Cool
+        icon_template: mdi:snowflake
+        value_template: "{{ is_state('climate.living_room', 'cool') }}"
+        turn_on:
+          service: climate.set_hvac_mode
+          data:
+            entity_id: climate.living_room
+            hvac_mode: cool
+        turn_off:
+          service: climate.turn_off
+          data:
+            entity_id: climate.living_room

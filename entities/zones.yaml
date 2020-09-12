@@ -1,0 +1,11 @@
+- name: Market
+  latitude: !secret market_latitude
+  longitude: !secret market_longitude
+  icon: mdi:cart
+  radius: 20
+  
+- name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  icon: mdi:home
+  radius: 30

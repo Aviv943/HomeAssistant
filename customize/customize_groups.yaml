@@ -1,0 +1,10 @@
+################################
+#
+#  Home View Card Ordering
+#
+################################
+
+group.temperatures:
+  order: 1
+group.humidities:
+  order: 2

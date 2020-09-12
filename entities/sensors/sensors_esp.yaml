@@ -1,0 +1,13 @@
+- platform: mqtt
+  state_topic: "outTopic"
+  unit_of_measurement: ''
+  name: Raining Bits
+  icon: mdi:weather-pouring
+  
+- platform: mqtt
+  name: "Raning Sensor"
+  state_topic: "outTopic"
+  unit_of_measurement: 'd/s'
+  value_template: "{{ 1024 - (value | int) }}"
+  payload_available: "ON"
+  payload_not_available: "OFF"

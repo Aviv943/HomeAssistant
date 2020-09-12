@@ -1,0 +1,14 @@
+.cloud
+.config_entries.json
+.storage
+deps/
+home-assistant.log
+home-assistant_v2.db
+.ignore
+includes/zones
+known_devices.yaml
+options.xml
+secrets.yaml
+tts/
+www/
+snapsnots/

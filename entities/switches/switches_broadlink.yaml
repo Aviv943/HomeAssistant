@@ -1,0 +1,54 @@
+  - platform: broadlink
+    host: 192.168.2.12
+    mac: !secret broadlink_mac_address
+    type: rm2_pro_plus
+    timeout: 20
+    switches:
+      bedroom_celling_light:
+        friendly_name: "Bedroom Celling Light Switch"
+        command_on: !secret bedroom_light_on
+        command_off: !secret bedroom_light_off
+      living_room_celling_light:
+        friendly_name: "Living Room Celling Light Switch"
+        command_on: !secret living_room_light_on
+        command_off: !secret living_room_light_off
+      work_room_celling_light:
+        friendly_name: "Work Room Celling Light Switch"
+        command_on: !secret work_room_light_on
+        command_off: !secret work_room_light_off
+      shower_room_mirror_light:
+        friendly_name: "Shower Room Mirror Light Switch"
+        command_on: !secret shower_room_light_on
+        command_off: !secret shower_room_light_off
+      kitchen_room_celling_light:
+        friendly_name: "Kitchen Celling Light Switch"
+        command_on: !secret kitchen_light_on
+        command_off: !secret kitchen_light_off
+      dining_area_celling_light:
+        friendly_name: "Dining Area Celling Light Switch"
+        command_on: !secret dining_area_light_on
+        command_off: !secret dining_area_light_off
+      toilet_room_wall_light:
+        friendly_name: "Toilet Room Wall Light Switch"
+        command_on: !secret toilet_room_light_on
+        command_off: !secret toilet_room_light_off
+      shower_room_wall_light:
+        friendly_name: "Shower Room Wall Light Switch"
+        command_on: !secret shower_room_small_light_on
+        command_off: !secret shower_room_small_light_off
+      work_room_ac_heat:
+        friendly_name: "Work Room AC Heat"
+        command_on: !secret work_room_ac_heat_on
+        command_off: !secret work_room_ac_off
+      work_room_ac_cool:
+        friendly_name: "Work Room AC Cool"
+        command_on: !secret work_room_ac_cool_on
+        command_off: !secret work_room_ac_off
+      work_room_led_strip_white:
+        friendly_name: "Work Room PC Monitors Led Strip White"
+        command_on: !secret work_room_led_strip_white_on
+        command_off: !secret work_room_led_strip_off
+      work_room_led_strip_yellow:
+        friendly_name: "Work Room PC Monitors Led Strip Yellow"
+        command_on: !secret work_room_led_strip_yellow_on
+        command_off: !secret work_room_led_strip_off

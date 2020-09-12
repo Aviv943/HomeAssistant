@@ -1,0 +1,70 @@
+- name: Lights Off
+  entities:
+    switch.living_room_light:
+      state: off
+    switch.bedroom_light:
+      state: off
+    switch.work_room_light:
+      state: off
+    switch.shower_room_light:
+      state: off
+    switch.toilet_room_light:
+      state: off
+    switch.kitchen_room_light:
+      state: off
+    switch.dining_area_light:
+      state: off
+
+- name: Bedtime
+  entities:
+    switch.living_room_light:
+      state: off
+    switch.bedroom_light:
+      state: off
+    switch.work_room_light:
+      state: off
+    switch.shower_room_light:
+      state: off
+    switch.toilet_room_light:
+      state: off
+    switch.kitchen_room_light:
+      state: off
+    switch.dining_area_light:
+      state: off
+    climate.living_room:
+      state: off
+    switch.work_room_ac_cool:
+      state: off
+    switch.work_room_ac_heat:
+      state: off
+      
+- name: Bedroom Bedside Off
+  entities:
+    light.bedroom_bedside_yeelight_aviv:
+      state: off
+    light.bedroom_bedside_yeelight_michal:
+      state: off
+
+- name: Bedroom Bedside Normal
+  entities:
+    light.bedroom_bedside_yeelight_aviv:
+      state: on
+      color_temp: 254
+      brightness: 40
+    light.bedroom_bedside_yeelight_michal:
+      state: on
+      color_temp: 254
+      brightness: 40
+
+- name: Bedroom Bedside Romantic
+  entities:
+    light.bedroom_bedside_yeelight_aviv:
+      state: on
+      #rgb_color: [155, 48, 255]
+      xy_color: [0.181, 0.073] #blue
+      brightness: 25
+    light.bedroom_bedside_yeelight_michal:
+      state: on
+      #rgb_color: [155, 48, 255]
+      xy_color: [0.322, 0.129] #blue
+      brightness: 25

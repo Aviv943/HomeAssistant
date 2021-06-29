@@ -1,0 +1,70 @@
+  - platform: etherscan
+    address: "0xf30f155e34559e1f7c80cd13f141eeb6243f0f63"
+  - platform: etherscan
+    address: "0xf30f155e34559e1f7c80cd13f141eeb6243f0f63"
+    token: USDT
+  - platform: etherscan
+    address: "0xf30f155e34559e1f7c80cd13f141eeb6243f0f63"
+    token_address: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+    token: USDC
+    
+  - platform: cryptoinfo
+    id: "main wallet"
+    cryptocurrency_name: "ethereum"
+    currency_name: "usd"
+    multiplier: 1
+    update_frequency: 1
+    
+  - platform: cryptoinfo
+    id: "main wallet ils"
+    cryptocurrency_name: "ethereum"
+    currency_name: "ils"
+    multiplier: 1
+    update_frequency: 1
+    
+  - platform: template
+    sensors:
+      eth_wallet_balance_usd:
+        friendly_name: "My ETH Balance USD"
+        unit_of_measurement: '$'
+        icon_template: mdi:currency-usd
+        value_template: "{{ (states('sensor.eth_balance') | float * states('sensor.cryptoinfo_main_wallet_ethereum_usd') | float) | round(2) }}"
+        
+  - platform: template
+    sensors:
+      eth_wallet_balance_ils:
+        friendly_name: "My ETH Balance ILS"
+        unit_of_measurement: '₪'
+        icon_template: mdi:currency-usd
+        value_template: "{{ (states('sensor.eth_balance') | float * states('sensor.cryptoinfo_main_wallet_ethereum_ils') | float) | round(2) }}"
+        
+  - platform: min_max
+    name: max_gpus_temp
+    type: max
+    entity_ids:
+      - sensor.hive_bottom_rig_gpu0_temp
+      - sensor.hive_bottom_rig_gpu1_temp
+      - sensor.hive_bottom_rig_gpu2_temp
+      - sensor.hive_bottom_rig_gpu3_temp
+      - sensor.hive_bottom_rig_gpu4_temp
+      - sensor.hive_bottom_rig_gpu5_temp
+      - sensor.hive_bottom_rig_gpu6_temp
+      - sensor.hive_bottom_rig_gpu7_temp
+      - sensor.hive_bottom_rig_gpu7_temp
+      - sensor.hive_top_rig_gpu0_temp
+      - sensor.hive_top_rig_gpu1_temp
+      - sensor.hive_top_rig_gpu2_temp
+      - sensor.hive_top_rig_gpu3_temp
+      - sensor.hive_top_rig_gpu4_temp
+      - sensor.hive_top_rig_gpu5_temp
+      - sensor.hive_top_rig_gpu6_temp
+      - sensor.hive_top_rig_gpu7_temp
+      
+  - platform: template
+    sensors:
+      hotest_gpu_temperature:
+        friendly_name: "Hotest GPU Temperature"
+        icon_template: mdi:fire
+        unit_of_measurement: °
+        value_template: >-
+          {{ state_attr('sensor.max_gpus_temp', 'max_value') }} 

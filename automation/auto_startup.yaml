@@ -4,17 +4,17 @@
     - platform: homeassistant
       event: start
   action:
-    # Load IOT Link - Aviv PC
-    - service: mqtt.publish 
-      data:
-        topic: "iotlink/workgroup/desktop-bptt9l6/refresh"
-        payload: ""
+    # # Load IOT Link - Aviv PC
+    # - service: mqtt.publish 
+      # data:
+        # topic: "iotlink/workgroup/desktop-bptt9l6/refresh"
+        # payload: ""
     
-    # Load IOT Link - Home Assistant PC    
-    - service: mqtt.publish 
-      data:
-        topic: "iotlink/workgroup/desktop-32dlq86/refresh"
-        payload: ""
+    # # Load IOT Link - Home Assistant PC    
+    # - service: mqtt.publish 
+      # data:
+        # topic: "iotlink/workgroup/desktop-32dlq86/refresh"
+        # payload: ""
 
     # Startup Notification
     - service: notify.avivtelegram 

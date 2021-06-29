@@ -11,11 +11,13 @@ script: !include_dir_merge_named /config/entities/scripts/
 scene: !include_dir_merge_list /config/entities/scenes/
 sensor: !include_dir_merge_list /config/entities/sensors/
 switch: !include_dir_merge_list /config/entities/switches/
+rest: !include_dir_merge_list /config/entities/rests/
 binary_sensor: !include_dir_merge_list /config/entities/binary_sensors/
 zone: !include /config/entities/zones.yaml
 group: !include_dir_merge_named group
 yeelight: !include /config/entities/yeelights.yaml
 plant: !include /config/entities/plants.yaml
+utility_meter: !include /config/entities/utility_meter.yaml
 
 frontend:
   themes: !include_dir_merge_named themes
@@ -27,6 +29,7 @@ homekit:
       - script
       - sensor
       - climate
+      - binary_sensor
 ios:
 
 cloud:
@@ -42,6 +45,11 @@ apple_tv:
     name: AppleTV- LivingRoom
     start_off: false
 
+tplink:
+  discovery: false
+  switch:
+    - host: 192.168.2.48
+
 # Sensibo
 climate:
   - platform: sensibo
@@ -50,11 +58,12 @@ climate:
 # HomeAssistant
 homeassistant:
   customize: !include_dir_merge_named customize
-  whitelist_external_dirs: 
-  - /config/snapshots
+#  whitelist_external_dirs: 
+# - /config/snapshots
 
 # SpeedTest
 speedtestdotnet:
+  server_id: 21197
   scan_interval:
     minutes: 30
   monitored_conditions:
@@ -88,8 +97,8 @@ device_tracker:
     hosts: 
       192.168.2.11
       192.168.2.12
-      192.168.2.13
-      192.168.2.14
+      192.168.2.61
+      192.168.2.63
       192.168.2.15
       192.168.2.16
       192.168.2.17
@@ -99,7 +108,18 @@ device_tracker:
       192.168.2.21
       192.168.2.22
       192.168.2.41
+      192.168.2.54
       
+#switcher_kis:
+#  phone_id: '0000'
+#  device_id: '1bd21f'
+#  device_password: '00000000'
+
+# switcher_kis:
+# phone_id: '0000'
+# device_id: 'dbc31f'
+# device_password: '00000000'
+
 # Sonoff
 sonoff:
   username: !secret sonoff_username

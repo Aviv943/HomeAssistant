@@ -1,0 +1,8 @@
+- platform: template
+  sensors:
+    aviv_battery_iphone:
+      value_template: >
+          {{ state_attr('device_tracker.life360_aviv', 'battery') }}
+      unit_of_measurement: '%'
+      device_class: battery
+      friendly_name: Aviv iPhone Battery

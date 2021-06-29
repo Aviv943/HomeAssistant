@@ -20,3 +20,12 @@ humidities:
    - sensor.multi_sensor
    - sensor.sensibo_living_room_humidity
    
+gpus:
+  name: gpus
+  entities: 
+   - sensor.hive_bottom_rig_gpu0_temp
+   - sensor.hive_bottom_rig_gpu1_temp
+   - sensor.hive_bottom_rig_gpu2_temp
+   - sensor.hive_bottom_rig_gpu3_temp
+   - sensor.hive_bottom_rig_gpu4_temp
+   - sensor.hive_bottom_rig_gpu05_temp

@@ -1,8 +1,6 @@
   - platform: broadlink
-    host: 192.168.2.12
+    # host: 192.168.2.12
     mac: !secret broadlink_mac_address
-    type: rm2_pro_plus
-    timeout: 20
     switches:
       bedroom_celling_light:
         friendly_name: "Bedroom Celling Light Switch"

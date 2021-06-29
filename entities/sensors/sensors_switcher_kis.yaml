@@ -1,0 +1,89 @@
+# - platform: template
+#   sensors:
+#     switcher_webapi_bottom_top_rig_ac_electric_current:
+#       friendly_name: "Electric Current"
+#       icon_template: mdi:flash
+#       unit_of_measurement: A
+#       value_template: >-
+#         {{ state_attr('sensor.switcher_webapi_bottom_top_rig_ac', 'electric_current') }}
+
+#     switcher_webapi_bottom_top_rig_ac_power_consumption:
+#       friendly_name: "Power Consumption"
+#       icon_template: mdi:flash
+#       unit_of_measurement: kW
+#       value_template: >-
+#         {{ state_attr('sensor.switcher_webapi_bottom_top_rig_ac', 'power_consumption') }}
+
+#     switcher_webapi_bottom_top_rig_ac_state:
+#       friendly_name: "State"
+#       icon_template: mdi:flash
+#       value_template: >-
+#         {{ state_attr('sensor.switcher_webapi_bottom_top_rig_ac', 'state') }} 
+        
+#     switcher_webapi_top_rig_electric_current:
+#       friendly_name: "Electric Current"
+#       icon_template: mdi:flash
+#       unit_of_measurement: A
+#       value_template: >-
+#         {{ state_attr('sensor.switcher_webapi_top_rig', 'electric_current') }}
+
+#     switcher_webapi_top_rig_power_consumption:
+#       friendly_name: "Power Consumption"
+#       icon_template: mdi:flash
+#       unit_of_measurement: kW
+#       value_template: >-
+#         {{ state_attr('sensor.switcher_webapi_top_rig', 'power_consumption') }}
+
+#     switcher_webapi_top_rig_state:
+#       friendly_name: "State"
+#       icon_template: mdi:flash
+#       value_template: >-
+#         {{ state_attr('sensor.switcher_webapi_top_rig', 'state') }} 
+        
+# - platform: template
+#   sensors:
+#     switcher_webapi_total_electric_current:
+#       friendly_name: "Switchers Total Electric Current"
+#       icon_template: mdi:flash
+#       unit_of_measurement: A
+#       value_template: >-
+#         {% set s1 = states('sensor.switcher_webapi_top_rig_electric_current') | float %}
+#         {% set s2 = states('sensor.switcher_webapi_bottom_top_rig_ac_electric_current') | float %}
+#         {{ s1 + s2 | float | round(1)}}        
+#     switcher_webapi_total_power_consumption:
+#       friendly_name: "Switchers Total Power Consumption"
+#       icon_template: mdi:flash
+#       unit_of_measurement: kW
+#       value_template: >-
+#         {% set s1 = states('sensor.switcher_webapi_top_rig_power_consumption') | int %}
+#         {% set s2 = states('sensor.switcher_webapi_bottom_top_rig_ac_power_consumption') | int %}
+#         {{ s1 + s2 | int }}
+        
+# - platform: template
+#   sensors:
+#     switcher_total_electric_pricing_per_hour:
+#       friendly_name: "Switchers total electric pricing per hour"
+#       unit_of_measurement: '₪'
+#       icon_template: mdi:currency-ils
+#       value_template: "{{ (states('sensor.switcher_webapi_total_power_consumption') | float /1000 * 0.5066) | round(2) }}"
+      
+# - platform: template
+#   sensors:
+#     switcher_total_electric_costs_daily:
+#       friendly_name: "Switchers total electric costs daily"
+#       unit_of_measurement: '₪'
+#       icon_template: mdi:currency-ils
+#       value_template: "{{ (states('sensor.switchers_power_consumption_daily') | float /1000 * 0.5066) | round(2) }}"
+      
+# - platform: template
+#   sensors:
+#     switcher_total_electric_costs_monthly:
+#       friendly_name: "Switchers total electric costs monthly"
+#       unit_of_measurement: '₪'
+#       icon_template: mdi:currency-ils
+#       value_template: "{{ (states('sensor.switchers_power_consumption_monthly') | float /1000 * 0.5066) | round(2) }}"
+      
+# - platform: integration
+#   source: sensor.switcher_webapi_total_power_consumption
+#   name: Switchers Total Power Consumption Per Hour
+#   unit_time: h

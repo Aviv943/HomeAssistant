@@ -1,0 +1,19 @@
+rest_command:
+
+  switcher_webapi_bottom_top_rig_ac_turn_on:
+    url: !secret switcher_webapi_bottom_top_rig_ac_turn_on
+    method: "POST"
+    payload: '{"minutes": "{{ minutes }}"}'
+
+  switcher_webapi_bottom_top_rig_ac_turn_off:
+    url: !secret switcher_webapi_bottom_top_rig_ac_turn_off
+    method: "POST"
+    
+  switcher_webapi_top_rig_turn_on:
+    url: !secret switcher_webapi_top_rig_turn_on
+    method: "POST"
+    payload: '{"minutes": "{{ minutes }}"}'
+
+  switcher_webapi_top_rig_turn_off:
+    url: !secret switcher_webapi_top_rig_turn_off
+    method: "POST"

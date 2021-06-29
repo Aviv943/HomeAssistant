@@ -17,3 +17,24 @@
         unit_of_measurement: '°C'
         icon_template: mdi:thermometer
         value_template: "{{ state_attr('climate.living_room', 'temperature') }}"
+        
+      sensibo_balcony_temperature:
+        friendly_name: "Balcony Temperature (Sensibo)"
+        unit_of_measurement: '°C'
+        icon_template: mdi:thermometer
+        value_template: "{{ state_attr('climate.balcony', 'current_temperature') }}"
+      
+      sensibo_balcony_humidity:
+        friendly_name: "Balcony Humidity (Sensibo)"
+        unit_of_measurement: '%'
+        icon_template: mdi:thermometer
+        value_template: "{{ state_attr('climate.balcony', 'current_humidity') }}"
+
+      sensibo_balcony_target_temperature:
+        friendly_name: "Balcony Target Temperature (Sensibo)"
+        unit_of_measurement: '°C'
+        icon_template: mdi:thermometer
+        value_template: "{{ state_attr('climate.balcony', 'temperature') }}"
+        
+        
+        

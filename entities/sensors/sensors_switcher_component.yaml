@@ -1,0 +1,111 @@
+- platform: switcher_wat
+  port: 20002
+  host: !secret host_switcher_boiler
+  timeout: 60
+  name: Switcher Component Aviv Boiler Power Consumption
+  unit_of_measurement: watt
+  
+- platform: switcher_wat
+  port: 20002
+  host: !secret host_switcher_bottom_top_rig
+  timeout: 60
+  name: Switcher Component Bottom/Top Rig Power Consumption
+  unit_of_measurement: watt 
+
+- platform: switcher_wat
+  port: 20002
+  host: !secret host_switcher_top_rig
+  timeout: 60
+  name: Switcher Component Top Rig Power Consumption
+  unit_of_measurement: watt
+  
+- platform: template
+  sensors:
+    switcher_component_bottom_top_rig_electric_current:
+      friendly_name: "Electric Current"
+      icon_template: mdi:flash
+      unit_of_measurement: A
+      value_template: "{{ (states('sensor.switcher_component_bottom_top_rig_power_consumption') | float / 220) | round(1) }}"
+
+    switcher_component_bottom_top_rig_state:
+      friendly_name: "State"
+      icon_template: mdi:flash
+      value_template: >-
+        {% if (states('sensor.switcher_component_bottom_top_rig_power_consumption') | float) > 0 %}
+            on
+        {% else %}
+            off
+        {% endif %} 
+        
+- platform: template
+  sensors:
+    switcher_component_top_rig_electric_current:
+      friendly_name: "Electric Current"
+      icon_template: mdi:flash
+      unit_of_measurement: A
+      value_template: "{{ (states('sensor.switcher_component_top_rig_power_consumption') | float / 220) | round(1) }}"
+
+    switcher_component_top_rig_state:
+      friendly_name: "State"
+      icon_template: mdi:flash
+      value_template: >-
+        {% if (states('sensor.switcher_component_top_rig_power_consumption') | float) > 0 %}
+            on
+        {% else %}
+            off
+        {% endif %} 
+        
+- platform: template
+  sensors:
+    switcher_component_total_electric_current:
+      friendly_name: "Switchers Total Electric Current"
+      icon_template: mdi:flash
+      unit_of_measurement: A
+      value_template: >-
+        {% set s1 = states('sensor.switcher_component_bottom_top_rig_electric_current') | float %}
+        {% set s2 = states('sensor.switcher_component_top_rig_electric_current') | float %}
+        {{ s1 + s2 | float | round(1)}}        
+        
+    switcher_component_total_power_consumption:
+      friendly_name: "Switchers Total Power Consumption"
+      icon_template: mdi:flash
+      unit_of_measurement: kW
+      value_template: >-
+        {% set s1 = states('sensor.switcher_component_top_rig_power_consumption') | int %}
+        {% set s2 = states('sensor.switcher_component_bottom_top_rig_power_consumption') | int %}
+        {{ s1 + s2 | int }}
+        
+    switcher_component_total_electric_pricing_per_hour:
+      friendly_name: "Switchers total electric pricing per hour"
+      unit_of_measurement: '₪'
+      icon_template: mdi:currency-ils
+      value_template: "{{ (states('sensor.switcher_component_total_power_consumption') | float /1000 * 0.5066) | round(2) }}"
+
+    switcher_component_total_electric_costs_daily:
+      friendly_name: "Switchers total electric costs daily"
+      unit_of_measurement: '₪'
+      icon_template: mdi:currency-ils
+      value_template: "{{ (states('sensor.switchers_power_consumption_daily') | float /1000 * 0.5066) | round(2) }}"
+
+    switcher_component_total_electric_costs_monthly:
+      friendly_name: "Switchers total electric costs monthly"
+      unit_of_measurement: '₪'
+      icon_template: mdi:currency-ils
+      value_template: "{{ (states('sensor.switchers_power_consumption_monthly') | float /1000 * 0.5066) | round(2) }}"
+      
+    switcher_component_power_consumption_daily_kwh:
+      friendly_name: "Switchers Power Consumption Daily kWh"
+      unit_of_measurement: 'kWh'
+      icon_template: mdi:counter
+      value_template: "{{ (states('sensor.switchers_power_consumption_daily') | float /1000) | round(1) }}"
+      
+    switcher_component_power_consumption_monthly_kwh:
+      friendly_name: "Switchers Power Consumption Monthly kWh"
+      unit_of_measurement: 'kWh'
+      icon_template: mdi:counter
+      value_template: "{{ (states('sensor.switchers_power_consumption_monthly') | float /1000) | round(1) }}"
+      
+- platform: integration
+  source: sensor.switcher_component_total_power_consumption
+  name: Switchers Total Power Consumption Per Hour
+  unit_time: h

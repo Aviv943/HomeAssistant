@@ -1,0 +1,7 @@
+  switchers_power_consumption_daily:
+    source: sensor.switchers_total_power_consumption_per_hour
+    cycle: daily
+    
+  switchers_power_consumption_monthly:
+    source: sensor.switchers_total_power_consumption_per_hour
+    cycle: monthly

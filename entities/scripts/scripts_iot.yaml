@@ -1,67 +1,67 @@
-# Aviv- PC
+# # Aviv- PC
 
-avivpc_shutdown:
-  alias: AvivPC - Shutdown
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: "iotlink/workgroup/desktop-bptt9l6/commands/shutdown"
-        payload: ""
+# avivpc_shutdown:
+  # alias: AvivPC - Shutdown
+  # sequence:
+    # - service: mqtt.publish
+      # data:
+        # topic: "iotlink/workgroup/desktop-bptt9l6/commands/shutdown"
+        # payload: ""
 
-avivpc_reboot:
-  alias: AvivPC - Reboot
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: "iotlink/workgroup/desktop-bptt9l6/commands/reboot"
-        payload: ""
+# avivpc_reboot:
+  # alias: AvivPC - Reboot
+  # sequence:
+    # - service: mqtt.publish
+      # data:
+        # topic: "iotlink/workgroup/desktop-bptt9l6/commands/reboot"
+        # payload: ""
 
-avivpc_lock:
-  alias: AvivPC - Lock
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: "iotlink/workgroup/desktop-bptt9l6/commands/lock"
-        payload: ""
+# avivpc_lock:
+  # alias: AvivPC - Lock
+  # sequence:
+    # - service: mqtt.publish
+      # data:
+        # topic: "iotlink/workgroup/desktop-bptt9l6/commands/lock"
+        # payload: ""
 
-avivpc_notify:
-  alias: AvivPC - Notify
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: "iotlink/workgroup/desktop-bptt9l6/commands/notify"
-        payload: '{ "title": "My Notification Title", "message": "This is an example of notification using IOT Link", "launchParams": "toast://open/https://iotlink.gitlab.io" }'
+# avivpc_notify:
+  # alias: AvivPC - Notify
+  # sequence:
+    # - service: mqtt.publish
+      # data:
+        # topic: "iotlink/workgroup/desktop-bptt9l6/commands/notify"
+        # payload: '{ "title": "My Notification Title", "message": "This is an example of notification using IOT Link", "launchParams": "toast://open/https://iotlink.gitlab.io" }'
 
-# HomeAssistant- PC
+# # HomeAssistant- PC
 
-homeasssitantpc_shutdown:
-  alias: HomeAssistantPC - Shutdown
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: "iotlink/workgroup/desktop-32dlq86/commands/shutdown"
-        payload: ""
+# homeasssitantpc_shutdown:
+  # alias: HomeAssistantPC - Shutdown
+  # sequence:
+    # - service: mqtt.publish
+      # data:
+        # topic: "iotlink/workgroup/desktop-32dlq86/commands/shutdown"
+        # payload: ""
 
-homeasssitantpc_reboot:
-  alias: HomeAssistantPC - Reboot
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: "iotlink/workgroup/desktop-32dlq86/commands/reboot"
-        payload: ""
+# homeasssitantpc_reboot:
+  # alias: HomeAssistantPC - Reboot
+  # sequence:
+    # - service: mqtt.publish
+      # data:
+        # topic: "iotlink/workgroup/desktop-32dlq86/commands/reboot"
+        # payload: ""
 
-homeasssitantpc_lock:
-  alias: HomeAssistantPC - Lock
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: "iotlink/workgroup/desktop-32dlq86/commands/lock"
-        payload: ""
+# homeasssitantpc_lock:
+  # alias: HomeAssistantPC - Lock
+  # sequence:
+    # - service: mqtt.publish
+      # data:
+        # topic: "iotlink/workgroup/desktop-32dlq86/commands/lock"
+        # payload: ""
 
-homeasssitantpc_notify:
-  alias: HomeAssistantPC - Notify
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: "iotlink/workgroup/desktop-32dlq86/commands/notify"
-        payload: '{ "title": "My Notification Title", "message": "This is an example of notification using IOT Link", "launchParams": "toast://open/https://iotlink.gitlab.io" }'
+# homeasssitantpc_notify:
+  # alias: HomeAssistantPC - Notify
+  # sequence:
+    # - service: mqtt.publish
+      # data:
+        # topic: "iotlink/workgroup/desktop-32dlq86/commands/notify"
+        # payload: '{ "title": "My Notification Title", "message": "This is an example of notification using IOT Link", "launchParams": "toast://open/https://iotlink.gitlab.io" }'

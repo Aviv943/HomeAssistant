@@ -1,0 +1,13 @@
+- id: '1602713496588'
+  alias: Notify on movement
+  description: ''
+  trigger:
+  - type: motion
+    platform: device
+    device_id: aaeda63fef374e33acb1bca76f2918bf
+    entity_id: binary_sensor.work_room_motion_sensor
+    domain: binary_sensor
+  condition: []
+  action:
+  - service: notify.notify
+  mode: single

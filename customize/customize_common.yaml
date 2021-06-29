@@ -69,3 +69,9 @@ plant.rozmarin:
 plant.hot_pepper:
   friendly_name: Hot Pepper
   entity_picture: /local/hot_pepper.jpg
+plant.lettuce:
+  friendly_name: Lettuce
+  entity_picture: /local/lettuce.jpg
+plant.salvia:
+  friendly_name: Salvia
+  entity_picture: /local/salvia.jpg
